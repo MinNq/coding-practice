@@ -53,5 +53,5 @@ class KMeans:
 						add += data[indice]
 						count += 1
 				self.centroids[index] = add/count 
-			print("Iteration ", iteration + 1,"th finished.")
+			print("Iteration ", iteration + 1, "finished.")
 		print("Training completed.")
