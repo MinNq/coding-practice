@@ -4,5 +4,5 @@
 <h3> Update </h3>
 Available now:
 <ul>
-  <li> K-means clustering </li>
+  <li> k-means clustering </li>
 </ul>
