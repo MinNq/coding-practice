@@ -1,7 +1,7 @@
 Features:
 <ul>
-  <li><code>"vanilla"</code> and `"k-means++"` centroids initialization methods are available. `"kmeans++"` is by default.</li>
-  <li>`plot()` function is used for plotting different clusters with different colors.</li>
+  <li><code>"vanilla"</code> and <code>"k-means++"</code> centroids initialization methods are available. <code>"kmeans++"</code> is by default.</li>
+  <li><code>plot()</code> function is used for plotting different clusters with different colors.</li>
 </ul>
 
 See [here] for an example.
