@@ -5,5 +5,5 @@
 Available now:
 <ul>
   <li> k-means clustering </li>
-  <li> genetic linear regression (unrecommended, don't try it unless you want to waste your time)</li>
+  <li> genetic linear regression (don't try it)</li>
 </ul>
