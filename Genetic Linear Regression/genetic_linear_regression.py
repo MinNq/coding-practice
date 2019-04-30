@@ -7,6 +7,7 @@
 
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 def loss(weights, data):
   
@@ -31,13 +32,13 @@ def offsprings(parent1, parent2):
     
   return child1, child2
 
-def mutated(individual):
+def mutated(individual, interval):
   mutated_individual = individual
   count = 0
   for feature in individual:
     suitable = np.random.choice([True,False], p = [0.1, 0.9])
     if suitable:
-      mutated_individual[count] = np.random.random_sample()
+      mutated_individual[count] = (interval[1]-interval[0])*np.random.random_sample() + interval[0]
     count += 1
     
   return mutated_individual
@@ -53,19 +54,25 @@ def best(pool, data):
 
 class genetic:
   
-  def __init__(self, n_weights, crossover_rate = 0.8, mutation_rate = 0.08, population = 100, max_iteration = 3000):
+  def __init__(self, n_weights, crossover_rate = 0.8, mutation_rate = 0.001, population = 1000, max_iteration = 30, interval = [-100,100], adaptive_mutation = True):
     
     self.n_weights = n_weights
     self.crossover_rate = crossover_rate
     self.mutation_rate = mutation_rate
     self.population = population
     self.max_iteration = max_iteration
+    self.interval = interval
+    self.adaptive_mutation = adaptive_mutation
     
   def train(self, data, training_info = False):
     
     global_best = None
+    performance_log = []
+    temp_loss = 0
+    
     self.initialize()
     for iteration_count in range(self.max_iteration):
+        
       self.parents_chosing(data)
       self.crossover()
       self.mutation()
@@ -74,18 +81,36 @@ class genetic:
         print("Gen", iteration_count + 1, "completed.")
         print("Gen's lowest loss:", best(self.pool ,data))
       
+      # Performance log for plotting
+      
       if global_best == None or best(self.pool, data)< global_best:
         global_best = best(self.pool, data)
+      performance_log.append(1/best(self.pool, data))
       
+      # adaptive mutation rate
+      
+      if self.adaptive_mutation:
+        if iteration_count > 0:
+          if performance_log[iteration_count] > performance_log[iteration_count - 1]:
+            self.mutation_rate *= 0.95
+          if performance_log[iteration_count] < performance_log[iteration_count - 1]:
+            self.mutation_rate /= 0.95
+          
     print("Training completed. Lowest loss:", global_best)
+    
+    plt.plot(range(self.max_iteration), performance_log)
+    plt.xlabel('Iteration')
+    plt.ylabel('Fitness')
+    
     
   def initialize(self):
     
-    self.pool = np.random.random_sample([self.population, self.n_weights])
+    self.pool = (self.interval[1] - self.interval[0])*np.random.random_sample([self.population, self.n_weights]) + self.interval[0]
   
   def parents_chosing(self, data):
     
     self.population = np.shape(self.pool)[0]
+    
     # fitness sorting
     
     fitness_table = []
@@ -97,16 +122,16 @@ class genetic:
     
     fitness_table.sort(key = lambda x: x[0], reverse = True)
     
-    count = 1
+    count = 0
     for item in fitness_table:
       item.append(count)
       count += 1
       
     fitness_table.sort(key = lambda x: x[1])
     
-    # parents chosing
+    # rank based parents selection
     
-    sigma = self.population*(self.population + 1)//2
+    sigma = self.population*(self.population - 1)//2
     
     distribution = []
     
@@ -139,4 +164,4 @@ class genetic:
     for individual in self.newpool:
       suitable = np.random.choice([True,False], p = [self.mutation_rate, 1 - self.mutation_rate])
       if suitable:
-        individual = mutated(individual)
+        individual = mutated(individual, self.interval)
