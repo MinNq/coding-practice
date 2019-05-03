@@ -1,9 +1,21 @@
-One day, I just thought that, I should try doing Linear Regression with a Genetic Algorithm instead of Gradient Descent. That idea turns out to be unexpectedly terrible. A tip for you fellow coders: never use GA for LR.
+#Adaptive mutation
+I implemented an adaptive mutation rate schedule. The mutation rate will be tuned a little bit higher when a decrease in best-performance is detected and vice versa, starting from generation 5.
 
-See my painful example [here].
+#Notes
 
-I actually did modify the vanilla GA with an adaptive scheme for mutation rate. It will get slightly lower when the performance gets better and vice versa. However, regrardless of method used, best individuals are often found in the first or early generations and the pool seems not to evolve at all. Maybe it's because of insufficient number of weights, iteration, or population.
+*  Repeated best performance after some generations doesn't always mean that the pool is lacking diversity and mutations. It just implies that there hasn't been any better individual to overtake the position of the current best (and uncrossovered, unmutated) individual yet.
 
-And again, GA might be a good approach to some problem, but not this one.
+*  Bigger population seems to improve the chance of having better results. This can best be observed at small population scale (e.g. 10, 20, 50, etc.)
 
-[here]: https://colab.research.google.com/drive/1GWkg1rqtwzGM3_3_xKg-T0gwKOeAGvQk
+#Some examples:
+
+[Google Colab notebook]
+
+![example 1][genetic_1]
+![example 2][genetic_2]
+![example 3][genetic_3]
+
+[Google Colab notebook]: https://colab.research.google.com/drive/13FsDH_H3gL61crzzzssWE9admT-HDqR3
+[genetic_1]: https://github.com/MinNq/CFS/blob/master/Genetic%20Linear%20Regression/genetic_1.png
+[genetic_2]: https://github.com/MinNq/CFS/blob/master/Genetic%20Linear%20Regression/genetic_2.png
+[genetic_3]: https://github.com/MinNq/CFS/blob/master/Genetic%20Linear%20Regression/genetic_3.png
