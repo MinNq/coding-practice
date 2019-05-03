@@ -61,7 +61,7 @@ def best(pool, data):
 class genetic:
   
   def __init__(self, n_weights = 10 , crossover_rate = 0.8, mutation_rate = 0.3, 
-               population = 60, max_iteration = 20, interval = [-100,100], adaptive_mutation = False):
+               population = 60, max_iteration = 5000, interval = [-100,100], adaptive_mutation = False):
     
     self.n_weights = n_weights
     self.crossover_rate = crossover_rate
