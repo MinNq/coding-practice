@@ -60,7 +60,7 @@ def best(pool, data):
 
 class genetic:
   
-  def __init__(self, n_weights = 10 , crossover_rate = 0.8, mutation_rate = 0.02, 
+  def __init__(self, n_weights = 10 , crossover_rate = 0.8, mutation_rate = 0.3, 
                population = 60, max_iteration = 20, interval = [-100,100], adaptive_mutation = False):
     
     self.n_weights = n_weights
@@ -106,9 +106,9 @@ class genetic:
       
       if self.adaptive_mutation and self.mutation_rate < 0.3:
         if iteration_count > 3:
-          if self.performance_log[iteration_count] > self.performance_log[iteration_count - 1]:
+          if self.performance_log[iteration_count] > self.performance_log[iteration_count - 1] and self.mutation_rate > 0.01:
             self.mutation_rate *= 0.95
-          else:
+          if self.performance_log[iteration_count] <= self.performance_log[iteration_count - 1] and self.mutation_rate < 0.3:
             self.mutation_rate /= 0.95     
       
     print("Training completed. Lowest loss:", self.global_best)
