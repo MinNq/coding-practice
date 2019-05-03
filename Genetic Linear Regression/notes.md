@@ -1,5 +1,5 @@
 # Adaptive mutation
-I implemented an adaptive mutation rate schedule. The mutation rate will be tuned a little bit higher when a decrease in best-performance is detected and vice versa, starting from generation 5.
+I implemented an adaptive mutation rate schedule. The mutation rate will be tuned a little bit higher when a decrease in best-performance is detected and vice versa, starting from generation 5. This will eventually keep the mutation rate at around 0.3, which is a good rate for <code>n_weights = 10</code>.
 
 # Notes
 
