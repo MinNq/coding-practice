@@ -8,6 +8,7 @@
 
 [Google Colab notebook]
 
-![k-means1][https://github.com/MinNq/CFS/blob/master/k-means%20Clustering/k-means_1.png]
+![example][k-means_1]
 
 [Google Colab notebook]: https://colab.research.google.com/drive/1_Q7ZwRh96JbnZ0o81h-IDkV30KwWTDlH
+[k-means_1]: https://github.com/MinNq/CFS/blob/master/k-means%20Clustering/k-means_1.png
