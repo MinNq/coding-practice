@@ -1,13 +1,13 @@
-#Adaptive mutation
+# Adaptive mutation
 I implemented an adaptive mutation rate schedule. The mutation rate will be tuned a little bit higher when a decrease in best-performance is detected and vice versa, starting from generation 5.
 
-#Notes
+# Notes
 
 *  Repeated best performance after some generations doesn't always mean that the pool is lacking diversity and mutations. It just implies that there hasn't been any better individual to overtake the position of the current best (and uncrossovered, unmutated) individual yet.
 
 *  Bigger population seems to improve the chance of having better results. This can best be observed at small population scale (e.g. 10, 20, 50, etc.)
 
-#Some examples:
+# Some examples:
 
 [Google Colab notebook]
 
