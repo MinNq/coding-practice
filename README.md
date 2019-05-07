@@ -1,5 +1,5 @@
 <h2> CFS </h2>
-CFS is where I try some basic Machine Learning ideas.
+A repository for my small and miscellaneous projects.
 <br>
 <h3> Update </h3>
 Available now:
