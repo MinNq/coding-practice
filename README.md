@@ -6,4 +6,5 @@ Available now:
 <ul>
   <li> k-means Clustering </li>
   <li> Genetic Linear Regression</li>
+  <li> Jumping Rectangle</li>
 </ul>
