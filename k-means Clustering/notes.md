@@ -1,10 +1,13 @@
-# Notes
+# k-means Clustering
+Just your average Joe in k-means Clustering :)
+
+## Notes
 <ul>
   <li><code>"vanilla"</code> and <code>"k-means++"</code> centroids initialization methods are available. <code>"kmeans++"</code> is by default.</li>
   <li>Use <code>plot()</code> method to visualize.</li>
 </ul>
 
-# Example
+## Example
 
 [Google Colab notebook]
 
