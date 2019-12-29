@@ -1,10 +1,8 @@
-<h2> CFS </h2>
-A repository for my small and miscellaneous projects.
-<br>
-<h3> Update </h3>
-Available now:
-<ul>
-  <li> k-means Clustering </li>
-  <li> Genetic Linear Regression</li>
-  <li> Jumping Rectangle</li>
-</ul>
+# Coding Practice
+
+This repository is a compilation for my small programming projects. Current list:
+
+- Genetic Linear Regression
+- k-means Clustering
+- Multilayer Perceptron
+- Softmax Regression
