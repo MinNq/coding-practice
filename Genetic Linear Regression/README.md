@@ -21,5 +21,5 @@ My implementation of genetic algorithm for linear regression.
 ![example 3][genetic_3]
 
 [genetic_1]: genetic_1.png
-[genetic_2]: https://github.com/MinNq/coding-practice/blob/master/Genetic%20Linear%20Regression/genetic_2.png
-[genetic_3]: https://github.com/MinNq/coding-practice/blob/master/Genetic%20Linear%20Regression/genetic_3.png
+[genetic_2]: genetic_2.png
+[genetic_3]: genetic_3.png
