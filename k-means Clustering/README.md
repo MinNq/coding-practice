@@ -4,7 +4,7 @@ My implementation of k-means clustering algorithm
 
 <!-- more -->
 
-# Contents
+## Contents
 - [Important notes](#important-notes)
 - [Example](#example)
 
